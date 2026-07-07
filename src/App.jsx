@@ -1,38 +1,34 @@
 import { useState } from 'react'
 
-import AuthorCard from './components/AuthorCard'
-import BlogCard from './components/BlogCard'
-import BlogGrid from './components/BlogGrid'
-import BlogPost from './components/BlogPost'
-import BlogTopPost from './components/BlogTopPost'
-import CategoryFilter from './components/CategoryFilter'
-import Footer from './components/Footer'
-import Form from './components/Form'
-import Header from './components/Header'
-import Pagination from './components/Pagination'
-import RelatedPosts from './components/RelatedPosts'
-import SearchBar from './components/SearchBar'
-import Tags from './components/Tags'
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 import './App.css'
+import Default from './components/layout/Default';
+import Home from './pages/Home';
+// import BlogList from '../../../react-learning-projects/56.Layouts/src/pages/BlogList';
+import Author from './pages/Author';
+import BlogPost from './pages/BlogPost';
+import Category from './pages/Category';
+import Contact from './pages/Contact';
+import SearchPage from './pages/SearchPage';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
 
   return (
     <>
-      <Header />
-      <AuthorCard />
-      {/* <BlogCard></BlogCard> */}
-      <BlogGrid />
-      <BlogPost />
-      <BlogTopPost />
-      <CategoryFilter />
-      <Pagination />
-      <Form />
-      <RelatedPosts />
-      <SearchBar />
-      <Tags />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Default />}>
+          <Route index element={<Home />} />
+          {/* <Route path="blogs" element={<BlogList />} /> */}
+          <Route path="blog/:slug" element={<BlogPost />} />
+          <Route path="/blog/category/:slug" element={<Category />} />
+          <Route path="/blog/author/:author" element={<Author />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
     </>
   )
 }
