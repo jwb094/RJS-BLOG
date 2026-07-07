@@ -1,5 +1,12 @@
 import React from 'react';
-
+import {
+    TwitterIcon,
+    LinkedInIcon,
+    FacebookIcon,
+    InstagramIcon,
+    DateTimeIcon,
+    CatgeoriesIcon,
+} from '../assets/icons';
 function BlogPost(props) {
     return (
         <>
@@ -10,13 +17,17 @@ function BlogPost(props) {
                     <div className='bg-amber-200 h-auto hidden md:block'>
                         <h1>Title</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna...</p>
+                        <ul className='flex flex-row justify-between'>
+                            <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> Date</li>
+                            <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />Category</li>
+                        </ul>
                     </div>
                     {/* blog main img and caption */}
                     <div className='c-blog-post-main-img '>
-                        <fig>
+                        <figure>
                             <img class="  md:h-auto md:w-auto object-cover ..." src="https://placehold.co/736x479" />
                             <figcaption>Image caption</figcaption>
-                        </fig>
+                        </figure>
                     </div>
                     {/* mobile title and intro */}
                     <div className='bg-amber-200 h-auto md:hidden'>
@@ -24,8 +35,8 @@ function BlogPost(props) {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna...</p>
 
                         <ul className='flex flex-row justify-between'>
-                            <li>Date</li>
-                            <li>Category</li>
+                            <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> Date</li>
+                            <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />Category</li>
                         </ul>
                     </div>
                     {/* content */}
@@ -52,12 +63,14 @@ function BlogPost(props) {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     {/* Tags */}
-                    <div class="col-xs-12 col-md-12 | flex flex-row gap-16">
-                        <p>Share this story</p>
-                        <ul class="flex flex-row gap-16">
-                            <li>Fb</li>
-                            <li>Ln</li>
-                            <li>X</li>
+                    <p>Share this story</p>
+                    <div class="col-xs-12 col-md-12 | flex flex-row mt-6 gap-16">
+
+                        <ul className='c-blog-post-social-share flex flex-row  mt-3 gap-8'>
+                            <li><a href=""><FacebookIcon width={20} height={20} /></a></li>
+                            <li><a href=""><InstagramIcon width={20} height={20} /></a></li>
+                            <li><a href=""><LinkedInIcon width={20} height={20} /></a></li>
+                            <li><a href=""><TwitterIcon width={20} height={20} /></a></li>
                         </ul>
                     </div>
                 </div>

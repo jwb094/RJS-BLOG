@@ -1,5 +1,9 @@
 import React from 'react';
+import {
+    DateTimeIcon
+    , CatgeoriesIcon, PencilIcon
 
+} from '../assets/icons';
 function BlogCard(props) {
     return (
         <section data-template="blogCard" data-view="default" className='c-blog-card'>
@@ -14,10 +18,25 @@ function BlogCard(props) {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                         </p>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><a href="">photography</a></span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><a href="">travel</a></span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><a href="">winter</a></span>
+                    <div class="px-6 pt-4 pb-2 flex flex-row flex-wrap justify-between">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> photography</a>
+                        </span>
+                        <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a href="">Read More</a>
+                        </span>
+                        {/* <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> travel</a>
+                        </span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> winter</a>
+                        </span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> travel</a>
+                        </span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> winter</a>
+                        </span> */}
                     </div>
                 </div>
             </div>
