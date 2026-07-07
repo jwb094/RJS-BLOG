@@ -7,7 +7,7 @@ import {
     DateTimeIcon,
     CatgeoriesIcon,
 } from '../assets/icons';
-function BlogPost(props) {
+function BlogArticle(props) {
     return (
         <>
             <h1>blog Post</h1>
@@ -23,14 +23,14 @@ function BlogPost(props) {
                         </ul>
                     </div>
                     {/* blog main img and caption */}
-                    <div className='c-blog-post-main-img '>
+                    <div className='c-blog-post-main-img | flex flex-row justify-center '>
                         <figure>
                             <img class="  md:h-auto md:w-auto object-cover ..." src="https://placehold.co/736x479" />
-                            <figcaption>Image caption</figcaption>
+                            <figcaption className=' mt-2'>Image caption</figcaption>
                         </figure>
                     </div>
                     {/* mobile title and intro */}
-                    <div className='bg-amber-200 h-auto md:hidden'>
+                    <div className='bg-amber-200 h-auto md:hidden | mt-5 flex flex-col gap-y-5'>
                         <h1>Title</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna...</p>
 
@@ -40,7 +40,7 @@ function BlogPost(props) {
                         </ul>
                     </div>
                     {/* content */}
-                    <div class="c-blog-post-main-content  flex flex-col  gap-y-3">
+                    <div class="c-blog-post-main-content  flex flex-col  gap-y-3 | mt-5">
                         <h2>Heading lorum ipsum dolor</h2>
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea *commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt *mollit anim id est laborum.
@@ -79,4 +79,4 @@ function BlogPost(props) {
     );
 }
 
-export default BlogPost;
+export default BlogArticle;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form(props) {
+function ContactForm(props) {
     return (
         <>
             <h1>Form</h1>
@@ -60,4 +60,4 @@ function Form(props) {
     );
 }
 
-export default Form;
+export default ContactForm;
