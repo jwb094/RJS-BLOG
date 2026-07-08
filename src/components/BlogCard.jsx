@@ -1,46 +1,30 @@
 import React from 'react';
-import {
-    DateTimeIcon
-    , CatgeoriesIcon, PencilIcon
-
-} from '../assets/icons';
-function BlogCard(props) {
+import { DateTimeIcon, CatgeoriesIcon, PencilIcon } from '../assets/icons';
+function BlogCard({ post }) {
     return (
         <section data-template="blogCard" data-view="default" className='c-blog-card'>
             <div class=" md:max-w-auto rounded overflow-hidden shadow-lg">
                 <div className="related-post-card-img">
-                    <img class="min-w-full" src="https://placehold.co/400x300" alt="Sunset in the mountains" />
+                    <img class="min-w-full" src={post.featuredImage} alt="Sunset in the mountains" />
                 </div>
                 <div className="related-post-card-content">
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Blog Post Title {props.index}</div>
+                        <div class="font-bold text-xl mb-2">{post.title}</div>
                         <p class="text-gray-700 text-base">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                         </p>
                     </div>
                     <div class="px-6 pt-4 pb-2 flex flex-row flex-wrap justify-between">
                         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> photography</a>
+                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> {post.category}</a>
                         </span>
                         <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a href="">Read More</a>
+                            <a href={`/blog/${post.slug}`}>Read More</a>
                         </span>
-                        {/* <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> travel</a>
-                        </span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> winter</a>
-                        </span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> travel</a>
-                        </span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> winter</a>
-                        </span> */}
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 

@@ -2,25 +2,43 @@ import React from 'react';
 import BlogTopPost from '../components/BlogTopPost';
 import BlogGrid from '../components/BlogGrid';
 import BlogCard from '../components/BlogCard';
+import { blogTopStory, blogFeaturedStories, postByViewDescending, mostRecent } from '../utils/functions';
 function Home(props) {
-    const BlogPostsCards = [];
-    for (let index = 1; index <= 3; index++) {
-        BlogPostsCards.push(
-            <div class="w-1/4 ">
-                <BlogCard index={index} />
-            </div>
-        )
-    }
+
     return (
         <>
-            <BlogTopPost />
+            <BlogTopPost content={blogTopStory} />
             {/* featured Post  */}
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+                <h2 className='text-3xl'>Featured</h2>
+            </div>
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
-                    {BlogPostsCards}
+                    {blogFeaturedStories.map((post) => (
+                        <div class=" px-10 md:w-1/4 ">
+                            <BlogCard key={post.id} post={post} />
+                        </div>
+                    ))}
                 </div>
             </section>
-            <BlogGrid />
+            {/* Top Viewed Post  */}
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+                <h2 className='text-3xl'>Top View</h2>
+            </div>
+            <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
+                <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
+                    {postByViewDescending.map((post) => (
+                        <div class=" px-10 md:w-1/4 ">
+                            <BlogCard key={post.id} post={post} />
+                        </div>
+                    ))}
+                </div>
+            </section>
+            {/*Most Recently Published  */}
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+                <h2 className='text-3xl'>Recently Published</h2>
+            </div>
+            <BlogGrid content={mostRecent} />
         </>
     );
 }
