@@ -30,10 +30,10 @@ function Header(props) {
             ${isOpen ? "flex" : "hidden md:flex"}
           `}
                         >
-                            <a href="#">Home</a>
-                            <a href="#">Categories</a>
-                            <a href="#">Courses</a>
-                            <a href="#">Contact</a>
+                            <a href="/">Home</a>
+                            <a href="/blog/categories">Categories</a>
+                            <a href="/blog/Search">Search</a>
+                            <a href="/contact-us">Contact</a>
                         </div>
 
                     </div>
