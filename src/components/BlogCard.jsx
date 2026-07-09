@@ -19,7 +19,7 @@ function BlogCard({ post }) {
                             <a class="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> {post.category}</a>
                         </span>
                         <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a href={`/blog/${post.slug}`}>Read More</a>
+                            <a href={`/blog/${post.id}/${post.slug}`}>Read More</a>
                         </span>
                     </div>
                 </div>

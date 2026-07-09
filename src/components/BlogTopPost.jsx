@@ -16,7 +16,7 @@ function BlogTopPost(props) {
                             <img class="min-w-full " src={props.content.featuredImage} alt="Sunset in the mountains" />
                         </div>
                         <div className='c-blog-top-post-content | px-4 py-6 | flex flex-col gap-4 | md:w-1/2'>
-                            <a className="h-full  flex flex-col " href={`/blog/${props.content.slug}`}>
+                            <a className="h-full  flex flex-col " href={`/blog/${props.content.id}/${props.content.slug}`}>
 
                                 <h2 class="font-bold text-5xl mb-2">{props.content.title}</h2>
                                 <ul className='flex flex-row justify-between mt-7'>
