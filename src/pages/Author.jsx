@@ -2,25 +2,65 @@ import React from 'react';
 import AuthorCard from '../components/AuthorCard'
 import BlogGrid from '../components/BlogGrid';
 import BlogCard from '../components/BlogCard';
+import { useParams } from "react-router";
+import { getAuthorById, getAuthorTopViewPosts, getPostsByAuthors, getPosts } from '../utils/functions';
+import PageNotFound from './PageNotFound';
+import Pagination from "../components/Pagination";
+import { useState } from 'react';
+import { useMemo } from 'react';
 function Author(props) {
-    const TopViewPosts = [];
-    for (let index = 1; index <= 3; index++) {
-        TopViewPosts.push(
-            <div class="w-1/4 ">
-                <BlogCard index={index} />
-            </div>
-        )
+    const { author_id, author_slug } = useParams();
+    const author = getAuthorById(author_id);
+    if (!author) {
+        return <PageNotFound />;
     }
+    //Pagination logic
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(9);
+
+
+    const TopViewPosts = [];
+
+
+    let authorTopViewPosts = getAuthorTopViewPosts(Number(author_id));
+    let authorPosts = useMemo(() => getPostsByAuthors(Number(author_id), [author_id]));
+
+    //
+    let totalPages = Math.ceil(authorPosts.length / limit);
+
+    //retrieve the. small number
+    const currentPage = Math.min(page, totalPages);
+
+    const content = useMemo(() => getPosts(page, limit, authorPosts), [page, author_id]);
+
+
+
+    function handlePageChange(value) {
+        setPage(value);
+    }
+
     return (
         <>
-            <AuthorCard />
-            {/* Top view posts  */}
+            <AuthorCard author={author} />
+            {/* Top Viewed Post  */}
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+                <h2 className='text-3xl'>Top View</h2>
+            </div>
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
-                    {TopViewPosts}
+                    {authorTopViewPosts.map((post) => (
+                        // <div class=" px-10 ">
+                        <BlogCard key={post.id} post={post} />
+                        // </div>
+                    ))}
                 </div>
             </section>
-            <BlogGrid />
+
+            <BlogGrid content={content} />
+            <Pagination
+                totalPages={totalPages}
+                page={currentPage}
+                onPageChange={handlePageChange} />
         </>
     );
 }
