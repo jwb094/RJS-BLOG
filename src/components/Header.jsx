@@ -31,8 +31,8 @@ function Header(props) {
           `}
                         >
                             <a href="/">Home</a>
-                            <a href="/blog/categories">Categories</a>
-                            <a href="/blog/Search">Search</a>
+                            {/* <a href="/blog/categories">Categories</a> */}
+                            <a href="/search">Search</a>
                             <a href="/contact-us">Contact</a>
                         </div>
 
