@@ -1,13 +1,32 @@
 import { blogPosts } from '../data/posts';
 import { authors } from '../data/author';
-import { categories } from '../data/category'
+import { category } from '../data/category'
 import { tags } from '../data/topics'
 
 
+export const getRandomPosts = [...blogPosts]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 9);
+
+export const topicsTags = tags.map((item) => item.slug);
+
+export const cats = category.map((item) => item.title);
 
 let sortedPost = blogPosts.sort((a, b) => {
     return a.publishedDate > b.publishedDate ? 1 : -1; // asc
 })
+
+
+let postByViewDesc = blogPosts.sort((a, b) => {
+    return a.views > b.views ? -1 : 1; // asc
+});
+
+
+export const getAuthorTopViewPosts = (authorId) => {
+    return postByViewDesc.filter(post => post.author_id == authorId).slice(0, 3);
+}
+
+
 
 // export function getAuthor(sortedPost) => {
 for (let index = 0; index < sortedPost.length; index++) {
@@ -26,7 +45,7 @@ export const mostRecentPost = sortedPost.slice(4, 13);
 
 
 //Get REcent Story for Top Story
-export const blogTopStory = sortedPost.shift();
+export const blogTopStory = sortedPost[0];
 
 
 //Get Recent Featured Stories
@@ -42,10 +61,12 @@ export const blogFeaturedStories = sortedPost
  * Filter array
  */
 
-export const postByViewDescending = blogPosts.sort((a, b) => {
-    return a.views > b.views ? -1 : 1; // asc
-}).filter(post => !blogFeaturedStories.some(item => item.id === post.id))
-    .slice(0, 3)
+export const postByViewDescending =
+    // blogPosts.sort((a, b) => {
+    //     return a.views > b.views ? -1 : 1; // asc
+    // })
+    postByViewDesc.filter(post => !blogFeaturedStories.some(item => item.id === post.id))
+        .slice(0, 3)
 // console.log(sortedPostByView);
 
 
@@ -62,5 +83,87 @@ export const mostRecent = sortedPost
 export const postsSorted = sortedPost;
 
 
+export const getAuthorById = (authorId) => {
+    return authors.find((author) => author.id === Number(authorId));
+}
 
 
+
+export const SearchPostsDB = (search_term, search_category, search_tag) => {
+    return blogPosts.filter(post => {
+        const matchTitle =
+            search_term &&
+            post.title.toLowerCase().includes(search_term.toLowerCase());
+
+        const matchCategory =
+            search_category &&
+            post.category === search_category;
+
+        const matchTag =
+            search_tag &&
+            post.tags.includes(search_tag);
+
+        return matchTitle || matchCategory || matchTag;
+    }
+    )
+}
+// export const SearchDB = (search_term, search_category, search_tags) => {
+
+//     let searchResult = [];
+//     let search_term_result, search_category_result, search_tags_result;
+
+//     if (search_term !== "") {
+//         search_term_result = blogPosts
+//             .filter(post => post.title.includes(search_term));
+//     }
+
+//     search_category_result = blogPosts
+//         .filter(post => post.category === search_category);
+
+//     search_tags_result = blogPosts
+//         .filter(post => post.tags.includes(search_tags));
+
+//     console.log(search_term_result);
+//     console.log(search_category_result);
+//     console.log(search_tags_result);
+
+
+//     searchResult = search_term_result?.concat(search_category_result, search_tags_result)
+//     console.log(searchResult);
+
+//     //let result = searchResult.filter((item, index) => searchResult.indexOf(item) === index);
+//     //console.log(search_tags_result);
+//     // const final = searchResult.filter((item, index) => searchResult.indexOf(item) === index);
+//     // return final;
+// }
+
+export const getArticleById = (blogId) => {
+    const post = blogPosts.find(
+        (blog) => blog.id === Number(blogId)
+    );
+    const author = authors.find((author) => author.id === post.author_id);
+    if (author) {
+        post.author = author;
+    }
+    return post;
+};
+
+
+export const getPostsByAuthors = (authorId) => {
+    return sortedPost
+        .filter(post => post.author_id == authorId)
+        .filter(post => !blogFeaturedStories.some(item => item.id === post.id))
+        ;
+}
+export const getPosts = function (page, limit, data) {
+    return data.slice((page - 1) * limit, page * limit);
+    /**
+     * 
+     * Page 1 = 0-9
+     * Page 2 = 9-18
+     * Page 3 = 18-27
+     */
+    // console.log(paginatedPosts);
+    return paginatedPosts;
+
+};
