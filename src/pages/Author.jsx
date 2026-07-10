@@ -19,8 +19,6 @@ function Author(props) {
     const [limit, setLimit] = useState(9);
 
 
-    const TopViewPosts = [];
-
 
     let authorTopViewPosts = getAuthorTopViewPosts(Number(author_id));
     let authorPosts = useMemo(() => getPostsByAuthors(Number(author_id), [author_id]));
