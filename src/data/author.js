@@ -4,6 +4,7 @@ export const authors = [
   {
     id: 1,
     name: "Sophia Carter",
+    slug: "sophia-carter",
     dob: "1992-04-18",
     description:
       "Technology journalist and frontend developer passionate about AI, web technologies, and digital innovation.",
@@ -26,6 +27,7 @@ export const authors = [
   {
     id: 2,
     name: "Daniel Brooks",
+    slug: "daniel-brooks",
     dob: "1989-09-22",
     description:
       "Award-winning travel writer exploring cultures, destinations, and hidden gems around the world.",
@@ -48,6 +50,7 @@ export const authors = [
   {
     id: 3,
     name: "Emily Johnson",
+    slug: "emily-johnson",
     dob: "1994-12-10",
     description:
       "Fashion editor covering seasonal trends, sustainable fashion, and luxury brands.",
@@ -70,6 +73,7 @@ export const authors = [
   {
     id: 4,
     name: "Michael Turner",
+    slug: "michael-turner",
     dob: "1986-06-14",
     description:
       "Business strategist writing about startups, entrepreneurship, and leadership.",
@@ -91,6 +95,7 @@ export const authors = [
   {
     id: 5,
     name: "Olivia Bennett",
+    slug: "olivia-bennett",
     dob: "1990-01-30",
     description:
       "Food critic and home chef sharing recipes, restaurant reviews, and culinary stories.",
@@ -112,6 +117,7 @@ export const authors = [
   {
     id: 6,
     name: "James Walker",
+    slug: "james-walker",
     dob: "1988-03-08",
     description:
       "Political analyst focused on international affairs and public policy.",
@@ -133,6 +139,7 @@ export const authors = [
   {
     id: 7,
     name: "Charlotte Green",
+    name: "charlotte-green",
     dob: "1993-07-17",
     description:
       "Health coach promoting wellness, fitness, nutrition, and mindful living.",
@@ -154,6 +161,7 @@ export const authors = [
   {
     id: 8,
     name: "Ethan Cooper",
+    name: "ethan-cooper",
     dob: "1991-11-25",
     description:
       "Film critic and entertainment reporter reviewing movies and TV shows.",
@@ -175,6 +183,7 @@ export const authors = [
   {
     id: 9,
     name: "Grace Mitchell",
+    name: "grace-mitchell",
     dob: "1995-05-11",
     description:
       "Book reviewer and literature enthusiast sharing reading recommendations.",
@@ -196,6 +205,7 @@ export const authors = [
   {
     id: 10,
     name: "Ryan Foster",
+    name: "ryan-foster",
     dob: "1987-02-05",
     description:
       "Environmental journalist covering sustainability, climate change, and green technology.",
