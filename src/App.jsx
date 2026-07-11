@@ -22,7 +22,7 @@ function App() {
           <Route index element={<Home />} />
           {/* <Route path="blogs" element={<BlogList />} /> */}
           <Route path="blog/:id/:slug" element={<BlogPost />} />
-          <Route path="/blog/category/:slug" element={<Category />} />
+          <Route path="/blog/category/:category_slug" element={<Category />} />
           <Route path="/blog/author/:author_id/:author" element={<Author />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/search" element={<SearchPage />} />
