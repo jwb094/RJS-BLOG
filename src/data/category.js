@@ -1,6 +1,6 @@
 // categories.js
 
-export const categories = [
+export const category = [
   {
     id: 1,
     title: "Technology",
