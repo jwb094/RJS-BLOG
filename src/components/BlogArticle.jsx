@@ -71,7 +71,7 @@ function BlogArticle({ article }) {
                         />
                     </div>
                     {/* Tags */}
-                    <Tags topics={article.tags} />
+                    <Tags topics={article.topicsTags} />
                     {/* Share */}
                     <p>Share this story</p>
                     <div class="col-xs-12 col-md-12 | flex flex-row mt-6 gap-16">
