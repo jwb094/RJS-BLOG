@@ -9,33 +9,33 @@ function Home(props) {
         <>
             <BlogTopPost content={blogTopStory} />
             {/* featured Post  */}
-            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+            <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
                 <h2 className='text-3xl'>Featured</h2>
             </div>
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
-                    {blogFeaturedStories.map((post) => (
-                        <div class=" px-10 md:px-0 md:w-1/4 ">
+                    {blogFeaturedStories.map((post, index) => (
+                        <div className=" px-10 md:px-0 md:w-1/4 " key={index}>
                             <BlogCard key={post.id} post={post} />
                         </div>
                     ))}
                 </div>
             </section>
             {/* Top Viewed Post  */}
-            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+            <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
                 <h2 className='text-3xl'>Top View</h2>
             </div>
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
-                    {postByViewDescending.map((post) => (
-                        <div class="px-10 md:px-0 md:w-1/4 ">
+                    {postByViewDescending.map((post, index) => (
+                        <div className="px-10 md:px-0 md:w-1/4 " key={index}>
                             <BlogCard key={post.id} post={post} />
                         </div>
                     ))}
                 </div>
             </section>
             {/*Most Recently Published  */}
-            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+            <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
                 <h2 className='text-3xl'>Recently Published</h2>
             </div>
             <BlogGrid content={mostRecent} />

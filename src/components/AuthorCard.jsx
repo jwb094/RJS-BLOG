@@ -6,9 +6,9 @@ function AuthorCard({ author }) {
     return (
         <>
             <section data-template="author-card" data-view="default" className='c-author-card'>
-                <div class="mx-auto max-w-7xl px-0 py-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-0 py-4 sm:px-6 lg:px-8">
 
-                    <div class="flex flex-col md:flex-row flex-wrap   ">
+                    <div className="flex flex-col md:flex-row flex-wrap   ">
                         {/* <div class="border-4 border-top border-indigo-500 ..."></div> */}
                         {/* <div className='border-t-4 border-solid border-black'></div> */}
                         <div className='author-block flex flex-row justify-start | gap-4'>
