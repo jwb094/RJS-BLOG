@@ -14,7 +14,7 @@ function BlogArticle({ article }) {
         <>
 
             <section data-template="blog-post" data-view="default" className='c-blog-post'>
-                <div class="mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:px-8">
                     {/* mobile blog tite and intro */}
                     <div className=' h-auto hidden md:block'>
                         <h1 className='text-6xl'>{article.title}</h1>
@@ -63,7 +63,7 @@ function BlogArticle({ article }) {
                         </ul>
                     </div>
                     {/* content */}
-                    <div class="c-blog-post-main-content  flex flex-col  gap-y-3 | mt-5">
+                    <div className="c-blog-post-main-content  flex flex-col  gap-y-3 | mt-5">
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: article.content
@@ -74,7 +74,7 @@ function BlogArticle({ article }) {
                     <Tags topics={article.topicsTags} />
                     {/* Share */}
                     <p>Share this story</p>
-                    <div class="col-xs-12 col-md-12 | flex flex-row mt-6 gap-16">
+                    <div className="col-xs-12 col-md-12 | flex flex-row mt-6 gap-16">
 
                         <ul className='c-blog-post-social-share flex flex-row  mt-3 gap-8'>
                             <li><a href=""><FacebookIcon width={20} height={20} /></a></li>
