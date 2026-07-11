@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { topicsTags, cats } from '../utils/functions';
 function SearchBar(props) {
-
+    console.log(topicsTags);
 
 
     return (
@@ -40,7 +40,7 @@ function SearchBar(props) {
                                     Choose an option
                                 </option>
                                 {cats.map((cat) =>
-                                    <option value={cat.toLowerCase()}>{cat}</option >
+                                    <option value={cat.slug}>{cat.title}</option >
                                 )}
                             </select>
                         </div>
@@ -64,7 +64,7 @@ function SearchBar(props) {
                                     Choose an option
                                 </option>
                                 {topicsTags.map((tag) =>
-                                    <option value={tag.toLowerCase()}>{tag}</option >
+                                    <option value={tag.slug}>{tag.title}</option >
                                 )}
                             </select>
                         </div>

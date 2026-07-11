@@ -23,7 +23,9 @@ export const topicsTags = tags.map((item) => {
 
 });
 
-export const cats = category.map((item) => item.title);
+export const cats = category.map((item) => {
+    return { "title": item.title, "slug": item.slug }
+});
 
 let sortedPost = blogPosts.sort((a, b) => {
     return a.publishedDate > b.publishedDate ? 1 : -1; // asc
