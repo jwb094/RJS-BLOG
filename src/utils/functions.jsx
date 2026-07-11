@@ -77,12 +77,9 @@ export const blogFeaturedStories = sortedPost
  */
 
 export const postByViewDescending =
-    // blogPosts.sort((a, b) => {
-    //     return a.views > b.views ? -1 : 1; // asc
-    // })
     postByViewDesc.filter(post => !blogFeaturedStories.some(item => item.id === post.id))
         .slice(0, 3)
-// console.log(sortedPostByView);
+
 
 
 
@@ -122,40 +119,15 @@ export const SearchPostsDB = (search_term, search_category, search_tag) => {
     }
     )
 }
-// export const SearchDB = (search_term, search_category, search_tags) => {
 
-//     let searchResult = [];
-//     let search_term_result, search_category_result, search_tags_result;
-
-//     if (search_term !== "") {
-//         search_term_result = blogPosts
-//             .filter(post => post.title.includes(search_term));
-//     }
-
-//     search_category_result = blogPosts
-//         .filter(post => post.category === search_category);
-
-//     search_tags_result = blogPosts
-//         .filter(post => post.tags.includes(search_tags));
-
-//     console.log(search_term_result);
-//     console.log(search_category_result);
-//     console.log(search_tags_result);
-
-
-//     searchResult = search_term_result?.concat(search_category_result, search_tags_result)
-//     console.log(searchResult);
-
-//     //let result = searchResult.filter((item, index) => searchResult.indexOf(item) === index);
-//     //console.log(search_tags_result);
-//     // const final = searchResult.filter((item, index) => searchResult.indexOf(item) === index);
-//     // return final;
-// }
 
 export const getArticleById = (blogId) => {
-    const post = blogPosts.find(
+    let post = blogPosts.find(
         (blog) => blog.id === Number(blogId)
     );
+
+    post.publishedDate.split("-").reverse().join(".");
+
     const author = authors.find((author) => author.id === post.author_id);
     if (author) {
         post.author = author;
@@ -169,9 +141,7 @@ export const getArticleById = (blogId) => {
     post.tags.forEach(element => {
         const tag = tags.find((tag) => tag.slug === element);
         topicAndTags.push({ "name": tag.title, "slug": tag.slug });
-        //return { "tag_name": tag.title, "tag_slug": element };
     });
-    //console.log(topicAndTags);
     post.topicsTags = topicAndTags;
     return post;
 };
@@ -210,7 +180,6 @@ export const getPosts = function (page, limit, data) {
      * Page 2 = 9-18
      * Page 3 = 18-27
      */
-    // console.log(paginatedPosts);
     return paginatedPosts;
 
 };
