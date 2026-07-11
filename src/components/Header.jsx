@@ -28,13 +28,18 @@ function Header(props) {
                         <div
                             className={`
             flex-col md:flex md:flex-row md:items-center gap-4
-            absolute md:static top-16 left-0 w-full md:w-auto bg-amber-300 md:bg-transparent
+            absolute md:static top-14 left-0 w-full md:w-auto h-full bg-amber-300 md:bg-transparent z-10
             ${isOpen ? "flex" : "hidden md:flex"}
           `}
                         >
-                            <a href="/blog/categories">Categories</a>
-                            <a href="/search">Search</a>
-                            <a href="/contact-us">Contact</a>
+                            <ul className='flex flex-col md:flex-row md:gap-6 px-6 py-4 gap-y-6'>
+                                <li className='text-lg'><a href="/blog/categories">Categories</a></li>
+                                <li className='text-lg'><a href="/search">Search</a></li>
+                                <li className='text-lg'><a href="/contact-us">Contact</a></li>
+                            </ul>
+
+
+
                         </div>
 
                     </div>

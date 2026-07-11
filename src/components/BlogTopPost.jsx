@@ -1,16 +1,16 @@
 import React from 'react';
 import {
     DateTimeIcon
-    , CatgeoriesIcon, PencilIcon
+    , CatgeoriesIcon, PencilIcon, ThumbsUpIcon, CommentsIcon
 
 } from '../assets/icons';
 function BlogTopPost(props) {
     const style = "flex flex-row gap-2";
     return (
         <>
-            <section data-template="blog-Top-Post" data-view="default" className="c-blog-Top-Post">
+            <section data-template="blog-Top-Post" data-view="default" className="c-blog-Top-Post text-white">
                 <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-                    <div className="c-blog-top-post relative | flex flex-col md:flex-row gap-6 md:gap-y-3 | bg-[#8c8a8a] hover:bg-[#414141]">
+                    <div className="c-blog-top-post relative | flex flex-col md:flex-row gap-6 md:gap-y-3 | bg-[#454545] hover:bg-[#656565]">
                         <div className='c-blog-top-post-img relative | md:w-1/2'>
                             {/* <div className='mask | absolute w-full h-full bg-amber-900 opacity-30'></div> */}
                             <img className="min-w-full h-full" src={props.content.featuredImage} alt="Sunset in the mountains" />
@@ -20,16 +20,16 @@ function BlogTopPost(props) {
 
                                 <h2 className="font-bold text-5xl mb-2">{props.content.title}</h2>
                                 <ul className='flex flex-row justify-between mt-7'>
-                                    <li className={style}><DateTimeIcon width={24} height={24} />{props.content.publishedDate}</li>
+                                    <li className={style}><DateTimeIcon width={24} height={24} />{props.content.publishedDate.split("-").reverse().join(".")}</li>
                                     <li className={style}><CatgeoriesIcon width={24} height={24} />{props.content.category.charAt(0).toUpperCase() + props.content.category.slice(1)}</li>
                                 </ul>
                                 <p className='hidden md:block mt-5'> {props.content.excerpt}</p>
-                                <ul className='flex flex-row justify-between mt-7 md:mt-auto'>
+                                <ul className='flex flex-row justify-baseline gap-4 mt-7 md:mt-auto'>
                                     <li className={style}><PencilIcon width={24} height={24} /> {props.content.author.name}</li>
-
+                                    <li className={style}><ThumbsUpIcon width={24} height={24} /> {props.content.likes}</li>
+                                    <li className={style}><CommentsIcon width={24} height={24} /> {props.content.comments}</li>
                                 </ul>
                             </a>
-                            {/* <p className='md:mt-auto'>Author</p> */}
                         </div>
                     </div>
                 </div>
