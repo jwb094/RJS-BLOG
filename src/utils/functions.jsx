@@ -4,11 +4,24 @@ import { category } from '../data/category'
 import { tags } from '../data/topics'
 
 
+export const getCategory = category.map((item) => {
+
+    return {
+        "title": item.title,
+        "slug": '/blog/category/' + item.slug,
+        "no_of_stories": blogPosts.filter(post => post.category === item.title.toLowerCase()).length,
+        "desc": item.description
+    }
+
+})
 export const getRandomPosts = [...blogPosts]
     .sort(() => Math.random() - 0.5)
     .slice(0, 9);
 
-export const topicsTags = tags.map((item) => item.slug);
+export const topicsTags = tags.map((item) => {
+    return { "title": item.title, "slug": item.slug }
+
+});
 
 export const cats = category.map((item) => item.title);
 
@@ -150,6 +163,14 @@ export const getArticleById = (blogId) => {
         post.cat_slug = postCategory.slug;
     }
 
+    let topicAndTags = [];
+    post.tags.forEach(element => {
+        const tag = tags.find((tag) => tag.slug === element);
+        topicAndTags.push({ "name": tag.title, "slug": tag.slug });
+        //return { "tag_name": tag.title, "tag_slug": element };
+    });
+    //console.log(topicAndTags);
+    post.topicsTags = topicAndTags;
     return post;
 };
 
