@@ -1,7 +1,6 @@
 import React from 'react';
 import { getCategory } from '../utils/functions';
 function Categories(props) {
-    console.log(getCategory);
     return (
         <>
             <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-4">
