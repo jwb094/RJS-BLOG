@@ -11,7 +11,7 @@ function Header(props) {
 
                         {/* Brand */}
                         <div className="font-bold text-xl">
-                            MyBrand
+                            StorySphere
                         </div>
 
                         {/* Toggle */}
