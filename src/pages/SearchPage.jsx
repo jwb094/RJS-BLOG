@@ -3,7 +3,7 @@ import SearchBar from '../components/SearchBar';
 import BlogGrid from '../components/BlogGrid';
 import Pagination from '../components/Pagination';
 import SearchLoading from '../components/SearchLoading';
-import { SearchPostsDB, getPosts, getRandomPosts } from '../utils/functions';
+import { SearchPostsDB, contentPagination, getPosts, getRandomPosts } from '../utils/functions';
 import { useMemo } from 'react';
 import { TailSpin } from 'react-loader-spinner'
 function SearchPage(props) {
@@ -42,10 +42,8 @@ function SearchPage(props) {
     }
 
 
-    totalPages = Math.ceil(content.length / limit) || 1;
+    const PaginationData = contentPagination(page, limit, content);
 
-
-    currentPage = Math.min(page, totalPages);
 
     const searchContent = useMemo(() => getPosts(page, limit, content), [page, content]);
 
@@ -93,8 +91,8 @@ function SearchPage(props) {
                         <>
                             <BlogGrid content={searchContent} />
                             <Pagination
-                                totalPages={totalPages}
-                                page={currentPage}
+                                totalPages={PaginationData.totalPages}
+                                page={PaginationData.currentPage}
                                 onPageChange={handlePageChange} />
                         </>
             }

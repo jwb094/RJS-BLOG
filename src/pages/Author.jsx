@@ -3,7 +3,7 @@ import AuthorCard from '../components/AuthorCard'
 import BlogGrid from '../components/BlogGrid';
 import BlogCard from '../components/BlogCard';
 import { useParams } from "react-router";
-import { getAuthorById, getAuthorTopViewPosts, getPostsByAuthors, getPosts } from '../utils/functions';
+import { getAuthorById, getAuthorTopViewPosts, getPostsByAuthors, getPosts, contentPagination } from '../utils/functions';
 import PageNotFound from './PageNotFound';
 import Pagination from "../components/Pagination";
 import { useState } from 'react';
@@ -16,18 +16,16 @@ function Author(props) {
     }
     //Pagination logic
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(9);
+    const limit = 9;
 
 
 
     let authorTopViewPosts = getAuthorTopViewPosts(Number(author_id));
     let authorPosts = useMemo(() => getPostsByAuthors(Number(author_id), [author_id]));
 
-    //
-    let totalPages = Math.ceil(authorPosts.length / limit);
 
-    //retrieve the. small number
-    const currentPage = Math.min(page, totalPages);
+    const PaginationData = contentPagination(page, limit, authorPosts);
+
 
     const content = useMemo(() => getPosts(page, limit, authorPosts), [page, author_id]);
 
@@ -56,8 +54,8 @@ function Author(props) {
 
             <BlogGrid content={content} />
             <Pagination
-                totalPages={totalPages}
-                page={currentPage}
+                totalPages={PaginationData.totalPages}
+                page={PaginationData.currentPage}
                 onPageChange={handlePageChange} />
         </>
     );

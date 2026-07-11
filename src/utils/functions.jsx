@@ -145,9 +145,23 @@ export const getArticleById = (blogId) => {
     if (author) {
         post.author = author;
     }
+    const postCategory = category.find((cat) => cat.title.toLowerCase() === post.category);
+    if (postCategory) {
+        post.cat_slug = postCategory.slug;
+    }
+
     return post;
 };
 
+
+export const getPostsByCategory = (category) => {
+    return blogPosts
+        .filter(post => post.category === category)
+        .filter((post, index, array) =>
+            index === array.findIndex(item => item.id === post.id)
+        )
+        .sort((a, b) => new Date(a.publishedDate) - new Date(b.publishedDate));
+}
 
 export const getPostsByAuthors = (authorId) => {
     return sortedPost
@@ -167,3 +181,11 @@ export const getPosts = function (page, limit, data) {
     return paginatedPosts;
 
 };
+
+
+export const contentPagination = (page, limit, contentData) => {
+    let totalPages = Math.ceil(contentData.length / limit) || 1;
+    let currentPage = Math.min(page, totalPages);
+
+    return { "totalPages": totalPages, "currentPage": currentPage };
+} 
