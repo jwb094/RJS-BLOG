@@ -6,6 +6,8 @@ import {
     InstagramIcon,
     DateTimeIcon,
     CatgeoriesIcon,
+    ThumbsUpIcon,
+    CommentsIcon, ReadingTimeIcon
 } from '../assets/icons';
 import Tags from '../components/Tags'
 import AuthorCard from '../components/AuthorCard'
@@ -19,8 +21,11 @@ function BlogArticle({ article }) {
                     <div className=' h-auto hidden md:block'>
                         <h1 className='text-6xl'>{article.title}</h1>
                         <p className='text-3xl | py-4'>{article.subHeading}</p>
-                        <ul className='flex flex-row justify-between'>
+                        <ul className='flex flex-row justify-baseline gap-x-12'>
                             <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> {article.publishedDate}</li>
+                            <li className='flex gap-x-2'> <ThumbsUpIcon width={20} height={20} /> {article.likes}</li>
+                            <li className='flex gap-x-2'> <CommentsIcon width={20} height={20} /> {article.comments}</li>
+                            <li className='flex gap-x-2'> <ReadingTimeIcon width={20} height={20} /> {article.readingTime}&nbsp;mins</li>
                             <li className='flex gap-x-2'>
                                 <CatgeoriesIcon width={20} height={20} />
                                 <a href={`/blog/category/${article.cat_slug}`}>
@@ -55,6 +60,9 @@ function BlogArticle({ article }) {
 
                         <ul className='flex flex-row justify-between'>
                             <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> {article.publishedDate}</li>
+                            <li className='flex gap-x-2'> <ThumbsUpIcon width={20} height={20} /> {article.likes}</li>
+                            <li className='flex gap-x-2'> <CommentsIcon width={20} height={20} /> {article.comments}</li>
+                            <li className='flex gap-x-2'> <ReadingTimeIcon width={20} height={20} /> {article.readingTime}&nbsp;mins</li>
                             <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />
                                 <a href={`/blog/category/${article.cat_slug}`}>
                                     {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
