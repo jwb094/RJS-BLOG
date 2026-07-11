@@ -16,8 +16,8 @@ function BlogCard({ post }) {
                         </p>
                     </div>
                     <div className="px-6 pt-4 pb-2 flex flex-row flex-wrap justify-between">
-                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            <a className="flex flex-row gap-2" href=""><CatgeoriesIcon width={20} height={20} /> {post.category}</a>
+                        <span className="flex flew-row gap-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <CatgeoriesIcon width={20} height={20} /> {post.category}
                         </span>
                         <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                             <a href={`/blog/${post.id}/${post.slug}`}>Read More</a>
