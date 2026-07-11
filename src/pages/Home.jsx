@@ -15,7 +15,7 @@ function Home(props) {
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
                     {blogFeaturedStories.map((post) => (
-                        <div class=" px-10 md:w-1/4 ">
+                        <div class=" px-10 md:px-0 md:w-1/4 ">
                             <BlogCard key={post.id} post={post} />
                         </div>
                     ))}
@@ -28,7 +28,7 @@ function Home(props) {
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
                 <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
                     {postByViewDescending.map((post) => (
-                        <div class=" px-10 md:w-1/4 ">
+                        <div class="px-10 md:px-0 md:w-1/4 ">
                             <BlogCard key={post.id} post={post} />
                         </div>
                     ))}
