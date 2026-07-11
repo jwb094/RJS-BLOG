@@ -186,6 +186,16 @@ export const getPostsByCategory = (category) => {
         .sort((a, b) => new Date(a.publishedDate) - new Date(b.publishedDate));
 }
 
+
+export const getPostsByTags = (topicAndTag) => {
+    return blogPosts
+        .filter(post => post.tags.includes(topicAndTag))
+        .filter((post, index, array) =>
+            index === array.findIndex(item => item.id === post.id)
+        )
+        .sort((a, b) => new Date(a.publishedDate) - new Date(b.publishedDate));
+}
+
 export const getPostsByAuthors = (authorId) => {
     return sortedPost
         .filter(post => post.author_id == authorId)
