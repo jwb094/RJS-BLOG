@@ -12,6 +12,7 @@ import Category from './pages/Category';
 import Contact from './pages/Contact';
 import SearchPage from './pages/SearchPage';
 import PageNotFound from './pages/PageNotFound';
+import Categories from './pages/Categories';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           {/* <Route path="blogs" element={<BlogList />} /> */}
           <Route path="blog/:id/:slug" element={<BlogPost />} />
           <Route path="/blog/category/:category_slug" element={<Category />} />
+          <Route path="/blog/categories" element={<Categories />} />
           <Route path="/blog/author/:author_id/:author" element={<Author />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/search" element={<SearchPage />} />
