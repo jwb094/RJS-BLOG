@@ -21,14 +21,19 @@ function BlogArticle({ article }) {
                         <p className='text-3xl | py-4'>{article.subHeading}</p>
                         <ul className='flex flex-row justify-between'>
                             <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> {article.publishedDate}</li>
-                            <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />{article.category.charAt(0).toUpperCase() + article.category.slice(1)}</li>
+                            <li className='flex gap-x-2'>
+                                <CatgeoriesIcon width={20} height={20} />
+                                <a href={`/blog/category/${article.cat_slug}`}>
+                                    {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     {/* AuthorCard */}
                     <div className=' h-auto hidden md:block'>
-                        <a href={`/blog/author/${article.author.id}/${article.author.slug}`}>
-                            <AuthorCard author={article.author} />
-                        </a>
+                        {/* <a href={`/blog/author/${article.author.id}/${article.author.slug}`}> */}
+                        <AuthorCard author={article.author} />
+                        {/* </a> */}
                     </div>
                     {/* blog main img and caption */}
                     <div className='c-blog-post-main-img | flex flex-row justify-center | py-6 '>
@@ -39,9 +44,9 @@ function BlogArticle({ article }) {
                     </div>
                     {/* author - mobile */}
                     <div className=' h-auto md:hidden | mt-5 flex flex-col gap-y-5'>
-                        <a href={`/blog/author/${article.author.id}/${article.author.slug}`}>
-                            <AuthorCard author={article.author} />
-                        </a>
+                        {/* <a href={`/blog/author/${article.author.id}/${article.author.slug}`}> */}
+                        <AuthorCard author={article.author} />
+                        {/* </a> */}
                     </div>
                     {/* mobile title and intro */}
                     <div className=' h-auto md:hidden | mt-5 flex flex-col gap-y-5'>
@@ -50,7 +55,11 @@ function BlogArticle({ article }) {
 
                         <ul className='flex flex-row justify-between'>
                             <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> {article.publishedDate}</li>
-                            <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />{article.category.charAt(0).toUpperCase() + article.category.slice(1)}</li>
+                            <li className='flex gap-x-2'> <CatgeoriesIcon width={20} height={20} />
+                                <a href={`/blog/category/${article.cat_slug}`}>
+                                    {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     {/* content */}
