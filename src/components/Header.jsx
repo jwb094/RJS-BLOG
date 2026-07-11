@@ -11,7 +11,9 @@ function Header(props) {
 
                         {/* Brand */}
                         <div className="font-bold text-xl">
-                            StorySphere
+                            <a href="/">
+                                StorySphere
+                            </a>
                         </div>
 
                         {/* Toggle */}
@@ -30,8 +32,7 @@ function Header(props) {
             ${isOpen ? "flex" : "hidden md:flex"}
           `}
                         >
-                            <a href="/">Home</a>
-                            {/* <a href="/blog/categories">Categories</a> */}
+                            <a href="/blog/categories">Categories</a>
                             <a href="/search">Search</a>
                             <a href="/contact-us">Contact</a>
                         </div>
