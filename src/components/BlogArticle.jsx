@@ -18,8 +18,6 @@ function BlogArticle({ article }) {
 
             <article data-template="blog-post" data-view="default" className='c-blog-post'>
                 <div className="mx-auto max-w-7xl px-6 py-8 md:py-16 sm:px-6 lg:px-8">
-                    {/* mobile blog tite and intro */}
-                    {/* <div className=' h-auto '> */}
                     <h1 className='text-2xl md:text-6xl'>{article.title}</h1>
                     <p className='md:text-3xl | py-4'>{article.subHeading}</p>
                     <ul className='flex flex-row justify-baseline gap-x-12 | hidden md:flex'>
@@ -34,28 +32,17 @@ function BlogArticle({ article }) {
                             </a>
                         </li>
                     </ul>
-                    {/* </div> */}
                     {/* AuthorCard */}
-                    {/* <div className=' h-auto'> */}
 
                     <AuthorCard author={article.author} />
 
-                    {/* </div> */}
                     {/* blog main img and caption */}
-                    {/* <div > */}
                     <figure className='c-blog-post-main-img | py-6 '>
                         <img class="  object-cover ..." height="450" src={article.featuredImage} alt={article.featuredImageAlt} />
                         <figcaption className=' mt-2 '>{article.imageCaption}</figcaption>
                     </figure>
-                    {/* </div> */}
-                    {/* author - mobile md:h-auto md:w-auto */}
-                    {/* <div className=' h-auto md:hidden | mt-5 flex flex-col gap-y-5'> */}
-                    {/* <a href={`/blog/author/${article.author.id}/${article.author.slug}`}> */}
-                    {/* <AuthorCard author={article.author} /> */}
-                    {/* </a> */}
-                    {/* </div> */}
+
                     {/* mobile title and intro */}
-                    {/* <div className=' h-auto md:hidden | mt-5 flex flex-col gap-y-5'> */}
                     <ul className='flex flex-row flex-wrap justify-between | gap-y-4 |  h-auto md:hidden '>
                         <li className='flex gap-x-2'> <DateTimeIcon width={20} height={20} /> {article.publishedDate.split("-").reverse().join(".")}</li>
                         <li className='flex gap-x-2'> <ThumbsUpIcon width={20} height={20} /> {article.likes}</li>
@@ -67,7 +54,6 @@ function BlogArticle({ article }) {
                             </a>
                         </li>
                     </ul>
-                    {/* </div> */}
                     {/* content */}
                     <section className="c-blog-post-main-content  flex flex-col  gap-y-3 | mt-5"
                         dangerouslySetInnerHTML={{
