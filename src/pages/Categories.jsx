@@ -13,7 +13,7 @@ function Categories(props) {
             <section data-template="categoryGrid" data-view="default" className='c-category-grid'>
                 <div className="flex flex-col flex-wrap items-center md:justify-center md:flex-row gap-4">
                     {getCategory.map((category) =>
-                        <div class=" px-10 md:px-0 md:w-1/4  h-96">
+                        <div key={category.id} class=" px-10 md:px-0 md:w-1/4  " style={{ height: "21rem" }}>
                             <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg max-w-96 ">
                                 <div class="p-4 flex flex-col gap-y-3">
                                     <h5 class="mb-2 text-slate-800 text-xl font-semibold">
