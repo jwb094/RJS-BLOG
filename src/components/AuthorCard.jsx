@@ -4,7 +4,6 @@ import {
 } from '../assets/icons';
 import "../assets/styles/blogCard.scss"
 function AuthorCard({ author }) {
-    console.log(window.location.pathname.includes("author"));
     return (
         <>
             <section data-template="author-card" data-view="default" className='c-author-card'>
@@ -35,7 +34,6 @@ function AuthorCard({ author }) {
                                 {!window.location.pathname.includes("author") && (
                                     <a href={`/blog/author/${author.id}/${author.slug}`}> Go To Profile</a>
                                 )}
-
                             </div>
                         </div>
                     </div >
