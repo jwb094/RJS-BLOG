@@ -19,18 +19,23 @@ export const getRandomPosts = [...blogPosts]
     .slice(0, 9);
 
 export const topicsTags = tags.map((item) => {
-    return { "title": item.title, "slug": item.slug }
+    return { "id": item.id, "title": item.title, "slug": item.slug }
 
 });
 
 export const cats = category.map((item) => {
-    return { "title": item.title, "slug": item.slug }
+    return { "id": item.id, "title": item.title, "slug": item.slug }
 });
 
-let sortedPost = blogPosts.sort((a, b) => {
-    return a.publishedDate > b.publishedDate ? 1 : -1; // asc
-})
 
+let sortedPost = blogPosts.sort((a, b) => {
+    return new Date(a.publishedDate) > new Date(b.publishedDate) ? 1 : -1;
+});
+
+
+
+//Get REcent Story for Top Story
+export const blogTopStory = sortedPost[0];
 
 let postByViewDesc = blogPosts.sort((a, b) => {
     return a.views > b.views ? -1 : 1; // asc
@@ -59,14 +64,15 @@ export const mostRecentPost = sortedPost.slice(4, 13);
 
 
 
-//Get REcent Story for Top Story
-export const blogTopStory = sortedPost[0];
 
 
 //Get Recent Featured Stories
 
 export const blogFeaturedStories = sortedPost
     .filter(post => post.featured && post.id !== blogTopStory.id)
+    .filter((post, index, array) =>
+        index === array.findIndex(item => item.id === post.id)
+    )
     .slice(0, 3);
 
 
@@ -87,7 +93,7 @@ export const postByViewDescending =
 export const mostRecent = sortedPost
     .filter(post => !blogFeaturedStories.some(item => item.id === post.id))
     .filter(post => !postByViewDescending.some(item => item.id === post.id))
-    .slice(0, 9);
+    .slice(0, 6);
 
 
 
