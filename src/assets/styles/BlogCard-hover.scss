@@ -1,0 +1,4 @@
+.cards-container:has(:hover) .c-blog-card:not(:hover) {
+  filter: grayscale(1) brightness(0.6);
+    transform: scale(0.95);
+}
