@@ -39,11 +39,11 @@ function Author(props) {
         <>
             <AuthorCard author={author} />
             {/* Top Viewed Post  */}
-            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-0">
+            <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-0">
                 <h2 className='text-3xl'>Top View</h2>
             </div>
             <section data-template="blogGrid" data-view="default" className='c-blog-grid'>
-                <div className="flex flex-col items-center md:justify-center md:flex-row gap-4">
+                <div className="flex flex-col items-center md:justify-center md:flex-row p-4 gap-4 ">
                     {authorTopViewPosts.map((post) => (
                         // <div class=" px-10 ">
                         <BlogCard key={post.id} post={post} />
