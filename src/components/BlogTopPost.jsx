@@ -12,12 +12,10 @@ function BlogTopPost(props) {
                 <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
                     <div className="c-blog-top-post relative | flex flex-col md:flex-row gap-6 md:gap-y-3 | bg-[#454545] hover:bg-[#656565]">
                         <div className='c-blog-top-post-img relative | md:w-1/2'>
-                            {/* <div className='mask | absolute w-full h-full bg-amber-900 opacity-30'></div> */}
                             <img className="min-w-full h-full" src={props.content.featuredImage} alt="Sunset in the mountains" />
                         </div>
                         <div className='c-blog-top-post-content | px-4 py-6 | flex flex-col gap-4 | md:w-1/2'>
                             <a className="h-full  flex flex-col gap-4" href={`/blog/${props.content.id}/${props.content.slug}`}>
-
                                 <h2 className="font-bold text-5xl mb-2">{props.content.title}</h2>
                                 <ul className='flex flex-row justify-between mt-7'>
                                     <li className={style}><DateTimeIcon width={24} height={24} />{props.content.publishedDate.split("-").reverse().join(".")}</li>
