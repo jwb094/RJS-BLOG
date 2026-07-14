@@ -139,7 +139,7 @@ export const authors = [
   {
     id: 7,
     name: "Charlotte Green",
-    name: "charlotte-green",
+    slug: "charlotte-green",
     dob: "1993-07-17",
     description:
       "Health coach promoting wellness, fitness, nutrition, and mindful living.",
@@ -161,7 +161,7 @@ export const authors = [
   {
     id: 8,
     name: "Ethan Cooper",
-    name: "ethan-cooper",
+    slug: "ethan-cooper",
     dob: "1991-11-25",
     description:
       "Film critic and entertainment reporter reviewing movies and TV shows.",
@@ -183,7 +183,7 @@ export const authors = [
   {
     id: 9,
     name: "Grace Mitchell",
-    name: "grace-mitchell",
+    slug: "grace-mitchell",
     dob: "1995-05-11",
     description:
       "Book reviewer and literature enthusiast sharing reading recommendations.",
@@ -205,12 +205,12 @@ export const authors = [
   {
     id: 10,
     name: "Ryan Foster",
-    name: "ryan-foster",
+    slug: "ryan-foster",
     dob: "1987-02-05",
     description:
       "Environmental journalist covering sustainability, climate change, and green technology.",
-    avatar:
-      "https://images.unsplash.com/photo-1502767089025-6572583495b0?w=400&auto=format&fit=crop&q=80",
+    avtar:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=987",
     social: {
       x: "https://x.com/ryanfoster",
       linkedin: "https://linkedin.com/in/ryanfoster",
