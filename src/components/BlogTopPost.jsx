@@ -14,15 +14,15 @@ function BlogTopPost(props) {
                         <div className='c-blog-top-post-img relative | md:w-1/2'>
                             <img className="min-w-full h-full" src={props.content.featuredImage} alt="Sunset in the mountains" />
                         </div>
-                        <div className='c-blog-top-post-content | px-4 py-6 | flex flex-col gap-4 | md:w-1/2'>
+                        <div className='c-blog-top-post-content | px-4 py-4 md:py-8 | flex flex-col md:gap-4 | md:w-1/2'>
                             <a className="h-full  flex flex-col gap-4" href={`/blog/${props.content.id}/${props.content.slug}`}>
-                                <h2 className="font-bold text-5xl mb-2">{props.content.title}</h2>
+                                <h2 className="font-bold text-2xl md:text-5xl mb-2">{props.content.title}</h2>
                                 <ul className='flex flex-row justify-between mt-7'>
                                     <li className={style}><DateTimeIcon width={24} height={24} />{props.content.publishedDate.split("-").reverse().join(".")}</li>
                                     <li className={style}><CatgeoriesIcon width={24} height={24} />{props.content.category.charAt(0).toUpperCase() + props.content.category.slice(1)}</li>
                                 </ul>
                                 <p className='hidden md:block mt-5'> {props.content.excerpt}</p>
-                                <ul className='flex flex-row justify-baseline gap-4 mt-7 md:mt-auto'>
+                                <ul className='flex flex-row justify-baseline gap-4 md:mt-auto'>
                                     <li className={style}><PencilIcon width={24} height={24} /> {props.content.author.name}</li>
                                     <li className={style}><ThumbsUpIcon width={24} height={24} /> {props.content.likes}</li>
                                     <li className={style}><CommentsIcon width={24} height={24} /> {props.content.comments}</li>
