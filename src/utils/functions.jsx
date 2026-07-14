@@ -13,7 +13,9 @@ export const getCategory = category.map((item) => {
         "desc": item.description
     }
 
-})
+}).filter((post) => post.no_of_stories > 0);
+
+
 export const getRandomPosts = [...blogPosts]
     .sort(() => Math.random() - 0.5)
     .slice(0, 9);
