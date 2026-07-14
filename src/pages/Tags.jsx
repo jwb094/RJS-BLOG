@@ -37,8 +37,8 @@ function Tags(props) {
   return (
     <>
       <MetaTags
-        title={tags_seo.seo.metaTitle}
-        description={tags_seo.seo.metaDescription}
+        title={tags_seo.metaTitle}
+        description={tags_seo.metaDescription}
         image={window.location.origin + tags_seo.ogImage}
         name={tags_seo.twitterName}
       />

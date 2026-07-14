@@ -45,7 +45,7 @@ function BlogPost(props) {
         <>
             <MetaTags
                 title={article.seo.metaTitle}
-                description={article.seo.meta}
+                description={article.seo.metaDescription}
                 image={article.featuredImage}
                 name='StorySphere'
             />

@@ -1,12 +1,13 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
 import { contact_seo } from "../data/page_seo";
+import MetaTags from "../components/MetaTags";
 function Contact(props) {
   return (
     <>
       <MetaTags
-        title={contact_seo.seo.metaTitle}
-        description={contact_seo.seo.metaDescription}
+        title={contact_seo.metaTitle}
+        description={contact_seo.metaDescription}
         image={window.location.origin + contact_seo.ogImage}
         name={contact_seo.twitterName}
       />

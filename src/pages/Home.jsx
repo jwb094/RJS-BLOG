@@ -15,7 +15,7 @@ function Home(props) {
     <>
       <MetaTags
         title={home_seo.metaTitle}
-        description={home_seo.seo.meta}
+        description={home_seo.metaDescription}
         image={window.location.origin + home_seo.ogImage}
         name={home_seo.twitterName}
       />

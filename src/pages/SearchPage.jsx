@@ -55,8 +55,8 @@ function SearchPage(props) {
   return (
     <>
       <MetaTags
-        title={search_seo.seo.metaTitle}
-        description={search_seo.seo.metaDescription}
+        title={search_seo.metaTitle}
+        description={search_seo.metaDescription}
         image={window.location.origin + search_seo.ogImage}
         name={search_seo.twitterName}
       />
