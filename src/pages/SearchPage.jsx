@@ -1,107 +1,107 @@
-import React, { useState, useTransition } from 'react';
-import SearchBar from '../components/SearchBar';
-import BlogGrid from '../components/BlogGrid';
-import Pagination from '../components/Pagination';
-import SearchLoading from '../components/SearchLoading';
-import { SearchPostsDB, contentPagination, getPosts, getRandomPosts } from '../utils/functions';
-import { useMemo } from 'react';
-import { TailSpin } from 'react-loader-spinner'
+import React, { useState, useTransition } from "react";
+import SearchBar from "../components/SearchBar";
+import BlogGrid from "../components/BlogGrid";
+import Pagination from "../components/Pagination";
+import SearchLoading from "../components/SearchLoading";
+import {
+  SearchPostsDB,
+  contentPagination,
+  getPosts,
+  getRandomPosts,
+} from "../utils/functions";
+import { useMemo } from "react";
+import { TailSpin } from "react-loader-spinner";
+import MetaTags from "../components/MetaTags";
+import { search_seo } from "../data/page_seo";
 function SearchPage(props) {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searchCat, setSearchCat] = useState("");
-    const [searchTag, setSearchTag] = useState("");
-    const [page, setPage] = useState(1);
-    const [loading, setLoading] = useState(false);
-    const limit = 9;
-    const [isPending, startTransition] = useTransition();
-    const [content, setContent] = useState(getRandomPosts);
-    let totalPages, currentPage;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchCat, setSearchCat] = useState("");
+  const [searchTag, setSearchTag] = useState("");
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const limit = 9;
+  const [isPending, startTransition] = useTransition();
+  const [content, setContent] = useState(getRandomPosts);
+  let totalPages, currentPage;
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
+    setLoading(true);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    setTimeout(() => {
+      const result = SearchPostsDB(searchTerm, searchCat, searchTag);
 
-        setLoading(true);
+      startTransition(() => {
+        setContent(result);
+        setPage(1);
+      });
 
-        setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  };
 
-            const result = SearchPostsDB(searchTerm, searchCat, searchTag);
+  const PaginationData = contentPagination(page, limit, content);
 
+  const searchContent = useMemo(
+    () => getPosts(page, limit, content),
+    [page, content],
+  );
 
-            startTransition(() => {
-                setContent(result);
-                setPage(1);
-            })
+  function handlePageChange(value) {
+    setPage(value);
+  }
 
-            setLoading(false);
+  return (
+    <>
+      <MetaTags
+        title={search_seo.seo.metaTitle}
+        description={search_seo.seo.metaDescription}
+        image={window.location.origin + search_seo.ogImage}
+        name={search_seo.twitterName}
+      />
+      <SearchBar
+        search={searchTerm}
+        setSearchTerm={setSearchTerm}
+        searchCat={searchCat}
+        setSearchCat={setSearchCat}
+        searchTag={searchTag}
+        setSearchTag={setSearchTag}
+        SearchDB={handleSubmit}
+        loading={loading}
+      />
 
-        }, 3000)
-
-
-    }
-
-
-    const PaginationData = contentPagination(page, limit, content);
-
-
-    const searchContent = useMemo(() => getPosts(page, limit, content), [page, content]);
-
-
-    function handlePageChange(value) {
-        setPage(value);
-    }
-
-    return (
-        <>
-            <SearchBar
-                search={searchTerm}
-                setSearchTerm={setSearchTerm}
-                searchCat={searchCat}
-                setSearchCat={setSearchCat}
-                searchTag={searchTag}
-                setSearchTag={setSearchTag}
-                SearchDB={handleSubmit}
-                loading={loading} />
-
-            {/* 
+      {/* 
             if loading  OR isPending is TRUE
             else if - Content.Length === 0 (EMPTY) producing results
             else - there is Data display 
             */}
-            {
-                loading || isPending
-                    ?
-                    <>
-                        <SearchLoading />
-                    </>
-                    :
-                    content.length === 0
-                        ?
-                        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-4 text-center">
-                            <h2>No articles matched your search.</h2>
-                            <p>    Try:</p>
-                            <ul>
-                                <li>another keyword</li>
-                                <li>another category</li>
-                                <li>removing filters</li>
-                            </ul>
-                        </div>
-                        :
-                        <>
-                            <BlogGrid content={searchContent} />
-                            <Pagination
-                                totalPages={PaginationData.totalPages}
-                                page={PaginationData.currentPage}
-                                onPageChange={handlePageChange} />
-                        </>
-            }
-
-
-
-
+      {loading || isPending ? (
+        <>
+          <SearchLoading />
         </>
-    );
+      ) : content.length === 0 ? (
+        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-4 text-center">
+          <h2>No articles matched your search.</h2>
+          <p> Try:</p>
+          <ul>
+            <li>another keyword</li>
+            <li>another category</li>
+            <li>removing filters</li>
+          </ul>
+        </div>
+      ) : (
+        <>
+          <BlogGrid content={searchContent} />
+          <Pagination
+            totalPages={PaginationData.totalPages}
+            page={PaginationData.currentPage}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
+    </>
+  );
 }
 
 export default SearchPage;

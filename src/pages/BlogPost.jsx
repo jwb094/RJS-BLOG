@@ -3,6 +3,7 @@ import BlogArticle from '../components/BlogArticle';
 import { useParams } from "react-router";
 import { getArticleById } from '../utils/functions';
 import PageNotFound from './PageNotFound';
+import MetaTags from '../components/MetaTags';
 function BlogPost(props) {
     const { id, slug } = useParams();
 
@@ -42,6 +43,12 @@ function BlogPost(props) {
     };
     return (
         <>
+            <MetaTags
+                title={article.seo.metaTitle}
+                description={article.seo.meta}
+                image={article.featuredImage}
+                name='StorySphere'
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

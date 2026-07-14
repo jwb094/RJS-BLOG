@@ -1,8 +1,16 @@
 import React from 'react';
 import { getCategory } from '../utils/functions';
+import { categoryHub_seo } from '../data/page_seo';
+import MetaTags from '../components/MetaTags';
 function Categories(props) {
     return (
         <>
+            <MetaTags
+                title={categoryHub_seo.metaTitle}
+                description={categoryHub_seo.metaDescription}
+                image={window.location.origin+categoryHub_seo.ogImage}
+                name={categoryHub_seo.twitterName}
+            />
             <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-4">
                 <h1 className=' md:text-6xl'>Categories</h1>
                 <p className='text-lg mt-4'>

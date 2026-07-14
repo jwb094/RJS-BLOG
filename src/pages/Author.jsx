@@ -8,6 +8,7 @@ import PageNotFound from './PageNotFound';
 import Pagination from "../components/Pagination";
 import { useState } from 'react';
 import { useMemo } from 'react';
+import MetaTags from '../components/MetaTags';
 function Author(props) {
     const { author_id, author_slug } = useParams();
     const author = getAuthorById(author_id);
@@ -37,6 +38,12 @@ function Author(props) {
 
     return (
         <>
+              <MetaTags
+                title={author.seo.metaTitle}
+                description={author.seo.metaDescription}
+                image={window.location.origin+author.ogImage}  
+                name='StorySphere'
+            />
             <AuthorCard author={author} />
             {/* Top Viewed Post  */}
             <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-0">

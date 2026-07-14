@@ -4,7 +4,8 @@ import BlogGrid from '../components/BlogGrid';
 import Pagination from '../components/Pagination'
 import SearchLoading from '../components/SearchLoading';
 import { useParams } from 'react-router';
-import { getPosts, getPostsByCategory, contentPagination } from '../utils/functions';
+import { getPosts, getPostsByCategory, contentPagination, getCategoryBySlug } from '../utils/functions';
+import MetaTags from '../components/MetaTags';
 
 function Category(props) {
     const { category_slug } = useParams();
@@ -14,6 +15,7 @@ function Category(props) {
     const limit = 9;
     let totalPages, currentPage;
     const articles = getPostsByCategory(category_slug);
+    const category = getCategoryBySlug(category_slug);
     if (!articles) {
         return <PageNotFound />;
     }
@@ -35,7 +37,13 @@ function Category(props) {
 
     return (
         <>
-            <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                 <MetaTags
+                title={category.seo.metaTitle}
+                description={category.seo.metaDescription}
+                image={window.location.origin+"/src/assets/images/blogHub-og.png"}
+                name="@StorySphere"
+            />
+            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
                 <h1 className='text-5xl'>
                     {category_slug.charAt(0).toUpperCase() + category_slug.slice(1)}
                 </h1>
