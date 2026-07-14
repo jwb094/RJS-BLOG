@@ -32,7 +32,8 @@ This project simulates a real-world blog platform by using dummy data to represe
 - Bootstrap Icons
 - CSS3
 - Vite
-- React  Loader sSpinner
+- React  Loader Spinner
+- React Helmet 
 
 ---
 
