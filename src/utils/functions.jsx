@@ -155,6 +155,10 @@ export const getArticleById = (blogId) => {
 };
 
 
+export const getCategoryBySlug = (categorySlug) => {
+    return category.find((cat) => cat.slug === categorySlug);
+}
+
 export const getPostsByCategory = (category) => {
     return blogPosts
         .filter(post => post.category === category)
